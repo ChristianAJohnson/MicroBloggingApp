@@ -1,1 +1,7 @@
 <h2>Show the Contents of their feeds</h2>
+
+<% @posts.each do |p| %>
+Name: <%= p.name %>
+Content: <%= p.content %>
+Rating: <%= p.rating %>
+<% end %>
