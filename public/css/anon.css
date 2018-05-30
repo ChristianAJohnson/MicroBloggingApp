@@ -1,0 +1,10 @@
+body {
+	grid-template-areas:
+		'header header'
+		'nav nav'
+		'body .'
+		'body float'
+		'body .';
+	grid-template-columns: 5fr 2fr;
+	grid-template-rows: 70px 40px 60px 200px auto;
+}

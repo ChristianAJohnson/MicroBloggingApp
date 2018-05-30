@@ -1,13 +1,5 @@
 body {
 	display: grid;
-	grid-template-areas:
-		'header header'
-		'nav nav'
-		'body .'
-		'body float'
-		'body .';
-	grid-template-columns: 5fr 2fr;
-	grid-template-rows: 70px 40px 60px 200px auto;
 	font-family: 'Roboto Slab', serif;
 	background-color: #EA8C55;
 }
@@ -51,22 +43,19 @@ nav b a {
 }
 
 .logbox {
+	color: #EA8C55;
 	grid-area:float;
 	background-color:#81171B;
-	/*margin:0 15px 0 10px;*/
+	margin:0 15px 0 10px;
 	padding: 10px;
 	border: 3px solid #540804;
-	position: fixed;
-	height: 200px;
-	top: 150px;
-	right: 15px;
 }
 
 nav form,nav a, nav form input {
 	display: inline-block;
 }
 
-nav a, nav form input {
+nav a, nav form input, .logbox input[type=submit] {
 	width:100px;
 	background-color:white;
 	color: #C75146;
@@ -76,10 +65,14 @@ nav a, nav form input {
 	margin:0;
 }
 
+.logbox input, .logbox input[type=submit] {
+	margin:6px 0;
+}
+
 .logged {
 	position: absolute;
 	top:5px;
-	right:10px;
+	right:40px;
 }
 
 a {

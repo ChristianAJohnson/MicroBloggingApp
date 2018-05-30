@@ -4,7 +4,12 @@
 	<title>Cool Food Blog</title>
 	<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
 	<link href="https://fonts.googleapis.com/css?family=Rammetto+One|Roboto+Slab" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<% if !session[:user_id] %>
+		<link rel="stylesheet" type="text/css" href="css/anon.css">
+	<% else %>
+		<link rel="stylesheet" type="text/css" href="css/logged.css">
+	<% end %>
 </head>
 <body>
 
@@ -13,11 +18,11 @@
 	</header>
 
 	<nav>
-		<a href="/">feed</a>
 		<% if !session[:user_id] %>
 			<a href="/login">log in</a>
 			<a href="/signup">sign up</a>
 		<% else %>
+			<a href="/">feed</a>
 			<a href="/new-post">new post</a>
 			<div class="logged">
 				signed in as <b><a href="/display"><%= current_user.name %></a></b>
@@ -32,7 +37,17 @@
 	<%= yield %>
 </div>
 
-<div class="logbox">Login bonus here</div>
+<% if !session[:user_id] %>
+	<div class="logbox">
+		<form action="/login" method="post">
+			Name
+			<input type="text" name="name">
+			Password
+			<input type="password" name="password">
+			<input type="submit" value="Login">
+		</form>
+	</div>
+<% end %>
 
 </body>
 </html>
