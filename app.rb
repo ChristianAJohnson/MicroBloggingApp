@@ -52,6 +52,23 @@ post "/logout" do
 	redirect "/login"
 end
 
+get "/" do 
+	@posts = Post.all
+	erb :"posts/index"
+end
 
+get "/new-post" do 
+	erb :"posts/create"
+end
 
-
+post "/posts/create" do 
+	if !session[:user_id]
+		redirect "/login"
+	elsif params[:title] == "" || params[:content] == "" || params[:rating].to_i > 5 || params[:rating].to_i < 1 
+		redirect "/new-post"
+	else
+	logged_in = User.find(session[:user_id])
+	Post.create(name: params[:title], content: params[:content], rating: params[:rating].to_i, user_id: logged_in.id)
+	redirect "/feed"
+	end
+end

@@ -1,0 +1,12 @@
+<% @posts.each do |post| %>
+	<div class="post">
+		<h2> <%= post.name %> </h2>
+		<% if !post.user_id %>
+			by anonymous
+		<% else %>
+			by <%= User.find(post.user_id).name %>
+		<% end %>
+		<div class="headline"> <%= post.rating %> / 5 </div>
+		<%= post.content %>
+	</div>
+<% end %>
