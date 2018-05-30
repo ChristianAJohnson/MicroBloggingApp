@@ -1,10 +1,23 @@
 <h2>Show the Contents of their feeds</h2>
 
+
+Currently Logged in:
+<b>
+<% if current_user %>
+	<%= current_user.username %>
+<% end %>
+</b>
+
+<br>
+<br>
+
 <% @posts.each do |p| %>
-<b>Name: </b><%= p.name %>
+<b>Name of Recipe: </b><%= p.name %>
 <br>
 <b>Content: </b><%= p.content %>
 <br>
 <b>Rating: </b><%= p.rating %>
+<br>
+<b>User: </b> <%= p.user_id %>
 <br><br>
 <% end %>
