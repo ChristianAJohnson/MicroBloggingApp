@@ -14,5 +14,7 @@ end
 
 get "/feed" do
 
+@posts = Post.all
+
 erb :"users/feed"
 end

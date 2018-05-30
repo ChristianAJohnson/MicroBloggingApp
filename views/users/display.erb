@@ -1,2 +1,6 @@
 <h2> Show the Users and their Passwords</h2>
 
+<% users.each do |u| %>
+Username: <%= u.name %>
+Password: <%= u.password %>
+<% end %>
