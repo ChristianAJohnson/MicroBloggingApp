@@ -1,0 +1,98 @@
+body {
+	display: grid;
+	grid-template-areas:
+		'header header'
+		'nav nav'
+		'body .'
+		'body float'
+		'body .';
+	grid-template-columns: 5fr 2fr;
+	grid-template-rows: 70px 40px 60px 200px auto;
+	font-family: 'Roboto Slab', serif;
+	background-color: #EA8C55;
+}
+
+header {
+	grid-area:header;
+	background-color:red;
+	text-align: center;
+}
+
+nav {
+	grid-area:nav;
+	background-color:#81171B; 
+	position:relative;
+	padding:5px 10px;
+	color: #EA8C55;
+	border-bottom:5px solid #540804;
+	top:70px;
+}
+
+header, nav {
+	position: fixed;
+	width: 100%;
+}
+
+nav b a {
+	color: white;
+	font-weight: normal;
+	background-color: transparent;
+	width:auto;
+	border:none;
+	margin-right:5px;
+}
+
+.wrapper {
+	grid-area:body;
+	background-color:#eee;
+	margin: 15px 5px 0 15px;
+	padding:15px;
+	min-height:300px;
+}
+
+.logbox {
+	grid-area:float;
+	background-color:#81171B;
+	/*margin:0 15px 0 10px;*/
+	padding: 10px;
+	border: 3px solid #540804;
+	position: fixed;
+	height: 200px;
+	top: 150px;
+	right: 15px;
+}
+
+nav form,nav a, nav form input {
+	display: inline-block;
+}
+
+nav a, nav form input {
+	width:100px;
+	background-color:white;
+	color: #C75146;
+	border:2px solid #C75146;
+	border-radius: 5px;
+	padding:2px 5px;
+	margin:0;
+}
+
+.logged {
+	position: absolute;
+	top:5px;
+	right:10px;
+}
+
+a {
+	color: #AD2E24;
+	text-decoration: none;
+}
+
+h1, h1 a {
+	font-family: 'Rammetto One', cursive;
+	color: white;
+	letter-spacing: 2px;
+}
+
+h2 {
+	margin: 5px 0 20px;
+}
