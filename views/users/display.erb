@@ -1,8 +1,12 @@
 <h2> Show the Users and their Passwords</h2>
 
-<% @users.each do |u| %>
-<b>Username: </b><%= u.name %>
+
+<b>Username: </b><%= current_user.name %>
 <br>
-<b>Password: </b><%= u.password %>
+<b>Password: </b><%= current_user.password %>
 <br><br>
-<% end %>
+
+
+<form action="/delete" method="post">
+	<input type="submit" value="Delete">
+</form>
