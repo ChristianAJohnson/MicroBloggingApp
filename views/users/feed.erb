@@ -24,6 +24,11 @@
 <br>
 <b>Rating: </b><%= p.rating %>
 <br>
-<b>User: </b> <%= p.user_id %>
+<b>User: </b>
+		<% if !p.user_id %>
+			anonymous
+		<% else %>
+			<%= User.find(p.user_id).name %>
+		<% end %>
 <br><br>
 <% end %>
