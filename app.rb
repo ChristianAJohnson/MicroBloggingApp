@@ -18,3 +18,8 @@ get "/feed" do
 
 erb :"users/feed"
 end
+
+get "/signup" do
+
+erb :"users/signup"
+end
