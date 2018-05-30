@@ -4,6 +4,15 @@
 <a href="/login">Login</a><br>
 <a href="/signup">Signup</a><br><br>
 
+Currently Logged in:
+<b>
+<% if current_user %>
+	<%= current_user.name %>
+<% end %>
+</b>
+<br>
+<br>
+
 <form action="/logout" method="post">
 	<input type="submit" value="Logout">
 </form>
