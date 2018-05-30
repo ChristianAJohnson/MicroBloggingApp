@@ -1,0 +1,29 @@
+<h2>Show the Contents of their feeds</h2>
+
+
+<!-- Currently Logged in:
+<b>
+<% if current_user %>
+	<%= current_user.name %>
+<% end %>
+</b>
+<br>
+<br>
+
+<form action="/logout" method="post">
+	<input type="submit" value="Logout">
+</form>
+
+<br>
+<br> -->
+
+<% @posts.each do |p| %>
+<b>Name of Recipe: </b><%= p.name %>
+<br>
+<b>Content: </b><%= p.content %>
+<br>
+<b>Rating: </b><%= p.rating %>
+<br>
+<b>User: </b> <%= p.user_id %>
+<br><br>
+<% end %>

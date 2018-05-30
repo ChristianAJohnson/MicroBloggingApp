@@ -1,0 +1,12 @@
+<h2> Show the Users and their Passwords</h2>
+
+
+<b>Username: </b><%= current_user.name %>
+<br>
+<b>Password: </b><%= current_user.password %>
+<br><br>
+
+
+<form action="/delete" method="post">
+	<input type="submit" value="Delete">
+</form>
