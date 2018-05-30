@@ -54,7 +54,7 @@ end
 
 get "/" do 
 	@posts = Post.all
-	erb :"posts/index"
+	erb :"users/feed"
 end
 
 get "/new-post" do 
