@@ -13,6 +13,7 @@ end
 
 get "/display"  do
 	@users = User.all
+	@user = User.find(session[:user_id])
 	erb :"users/display"	
 end
 
@@ -82,4 +83,23 @@ post "/posts/create" do
 	Post.create(name: params[:title], content: params[:content], rating: params[:rating].to_i, user_id: logged_in.id)
 	redirect "/feed"
 	end
+end
+
+get "/update" do 
+	erb :"users/edit"
+end
+
+post "/edit_user" do
+	@user = User.find(session[:user_id])
+	if !session[:user_id]
+		redirect "/login"
+	else
+		if params[:name] != ""
+			@user.update(name: params[:name])
+		end
+		if params[:password] != ""
+			@user.update(password: params[:password])
+		end
+	end
+	redirect "/display"
 end
